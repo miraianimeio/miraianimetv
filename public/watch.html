@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Mirai - Watch Anime Online, Free Anime Streaming</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/New.css">
+    <link rel="stylesheet" href="./css/site-bottom-button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/tutorial.css">
+</head>
+<body>
+    <header>
+    <nav>
+           <ul class='nav-bar'>
+                <input type='checkbox' id='check' />
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+
+                <li class='logo'>
+                    <a href='home.html'><img src='assets/logo.png' alt="Logo"/></a>
+                </li>
+
+                <li class="nav-search-item">
+                    <div class="search-wrap">
+                        <span class="search-icon" id="animeSearchBtn" style="cursor: pointer;"><i class="fas fa-search"></i></span>
+                        <input type="text" id="animeSearchBox" placeholder="Search anime...">
+                        <kbd class="search-shortcut">Ctrl Y</kbd>
+                    </div>
+                </li>
+
+                <span class="menu">
+                    <li>
+                     <a href="home.html">Home</a></li>
+                    <li class="nav-dropdown">
+                                  <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                 Genre <i class="fas fa-angle-down"></i>
+                           </a>
+                          <ul class="dropdown-menu">
+                            <li><button class="genre-link" data-genre="Action">Action</button></li>
+                            <li><button class="genre-link" data-genre="Adventure">Adventure</button></li>
+                            <li><button class="genre-link" data-genre="Comedy">Comedy</button></li>
+                            <li><button class="genre-link" data-genre="Drama">Drama</button></li>
+                            <li><button class="genre-link" data-genre="Ecchi">Ecchi</button></li>
+                            <li><button class="genre-link" data-genre="Fantasy">Fantasy</button></li>
+                            <li><button class="genre-link" data-genre="Horror">Horror</button></li>
+                            <li><button class="genre-link" data-genre="Mahou Shoujo">Magical Girl</button></li>
+                            <li><button class="genre-link" data-genre="Mecha">Mecha</button></li>
+                            <li><button class="genre-link" data-genre="Music">Music</button></li>
+                            <li><button class="genre-link" data-genre="Mystery">Mystery</button></li>
+                            <li><button class="genre-link" data-genre="Psychological">Psychological</button></li>
+                            <li><button class="genre-link" data-genre="Romance">Romance</button></li>
+                            <li><button class="genre-link" data-genre="Sci-Fi">Sci-Fi</button></li>
+                            <li><button class="genre-link" data-genre="Slice of Life">Slice of Life</button></li>
+                            <li><button class="genre-link" data-genre="Sports">Sports</button></li>
+                            <li><button class="genre-link" data-genre="Supernatural">Supernatural</button></li>
+                            <li><button class="genre-link" data-genre="Thriller">Thriller</button></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                            Types <i class="fas fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><button type="button" class="types-link" data-type="TV">TV Series</button></li>
+                            <li><button type="button" class="types-link" data-type="MOVIE">Movies</button></li>
+                            <li><button type="button" class="types-link" data-type="OVA">OVAs</button></li>
+                            <li><button type="button" class="types-link" data-type="ONA">ONAs</button></li>
+                            <li><button type="button" class="types-link" data-type="SPECIAL">Specials</button></li>
+                            <li><button type="button" class="types-link" data-type="MUSIC">Music</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                    <li><a href="my-list.html"><i class="fas fa-list"></i> My List</a></li>
+                    <li><a href="updates.html">Updated</a></li>
+                </span>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="alert-banner">
+        <div class="alert-content">
+            <i class="fas fa-circle-info"></i>
+            <span>If Server 1 isn't responsive, switch to an alternate server below for continuous streaming.</span>
+        </div>
+    </div>
+
+    <main class="watch-wrapper">
+        <div class="main-content">
+            <section class="player-container" id="mainPlayer">
+                <div class="video-ratio-box">
+                    <iframe id="videoPlayer" src="about:blank" allowfullscreen allow="autoplay *; encrypted-media *; fullscreen *" title="Anime Video Player"></iframe>
+                    <div class="player-error-state" id="playerErrorState" hidden>
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <strong>Server could not load this episode</strong>
+                        <span>Try another server to continue watching.</span>
+                        <button type="button" id="playerRetryButton"><i class="fas fa-forward-step"></i> Try Next Server</button>
+                    </div>
+                </div>
+                <div class="server-selection">
+                    <div class="server-selection-top">
+                        <span class="server-label"><i class="fas fa-server"></i> Servers</span>
+                        <div class="auto-next-wrap">
+                            <label class="auto-next-label">
+                                <input type="checkbox" id="autoNextToggle" class="auto-next-checkbox" checked>
+                                <span>Auto Next</span>
+                            </label>
+                            <button class="server-btn" id="theaterToggleBtn" type="button">
+                                <i class="fas fa-expand-alt"></i> Theater Mode
+                            </button>
+                        </div>
+                    </div>
+                    <div class="server-buttons is-loading" id="serverButtonContainer" role="radiogroup" aria-label="Choose streaming server" aria-busy="true">
+                        <div class="server-choice-list">
+                            <div class="server-group">
+                                <span class="server-group-label">Sub</span>
+                                <button id="btn-server7" class="server-btn" type="button">Zoko</button>
+                                <button id="btn-server1" class="server-btn" type="button">MegaPlay</button>
+                                <button id="btn-server3" class="server-btn" type="button">VidNest Pahe</button>
+                                <button id="btn-server5" class="server-btn" type="button">VidNest</button>
+                            </div>
+                            <div class="server-group">
+                                <span class="server-group-label">Dub</span>
+                                <button id="btn-server8" class="server-btn" type="button">Zoko</button>
+                                <button id="btn-server2" class="server-btn" type="button">MegaPlay</button>
+                                <button id="btn-server4" class="server-btn" type="button">VidNest Pahe</button>
+                                <button id="btn-server6" class="server-btn" type="button">VidNest</button>
+                            </div>
+                            <button class="server-next-btn" id="tryNextServerBtn" type="button">
+                                <i class="fas fa-forward-step"></i> Try Next Server
+                            </button>
+                        </div>
+                                        </div>
+                 </div>
+             </section>
+
+            <section class="anime-metadata" aria-labelledby="animeTitleHeader">
+                    <div class="metadata-top">
+                    <a id="backToDetails" href="#" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+                    <div class="metadata-info">
+                        <h1 id="animeTitleHeader" class="anime-title">Loading Anime...</h1>
+                        <h2 id="episodeIndicator" class="episode-indicator">Episode --</h2>
+                        <div class="episode-progress" aria-label="Episode progress">
+                            <div class="episode-progress-track"><div id="episodeProgressFill" class="episode-progress-fill"></div></div>
+                            <span id="episodeProgressLabel">Episode -- of --</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-description-wrap">
+                    <p id="animeDescription" class="anime-description"></p>
+                    <button type="button" id="synopsisToggle" class="synopsis-toggle" hidden>Read more</button>
+                </div>
+             </section>
+         </div>
+
+
+        <aside class="sidebar-content" aria-labelledby="episodeListHeader">
+            <div class="sidebar-header">
+                <h3 id="episodeListHeader" class="sidebar-title">Episodes</h3>
+                <span class="episode-count" id="episodeCount">0 episodes</span>
+            </div>
+            <div class="episode-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="episodeSearch" placeholder="Search episodes...">
+            </div>
+            <button class="jump-current-btn" id="jumpCurrentBtn"><i class="fas fa-location-arrow"></i> Current Episode</button>
+            <div class="episode-list-scroll">
+                <nav class="episode-list" id="episodeListContainer" aria-label="Episode navigation selection">
+                </nav>
+            </div>
+            <section class="next-season-section" id="nextSeasonSection" hidden aria-labelledby="nextSeasonHeading">
+                <h3 id="nextSeasonHeading">Next Season</h3>
+                <a id="nextSeasonLink" class="next-season-link" href="#">
+                    <img id="nextSeasonPoster" src="assets/logo.png" alt="">
+                    <span id="nextSeasonTitle">Loading...</span>
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </section>
+        </aside>
+    </main>
+
+    <section class="watch-recommended-section" id="watchRecommendedSection">
+        <div class="watch-recommended-header">
+            <h3><i class="fas fa-star"></i> Recommended For You</h3>
+        </div>
+        <div class="watch-recommended-grid" id="watchRecommendedGrid">
+            <p class="watch-recommended-loading">Loading recommendations...</p>
+        </div>
+    </section>
+
+    <section class="comments-section" id="commentsSection">
+        <div class="comments-header">
+            <h3><i class="fas fa-comments"></i> Comments</h3>
+            <span class="comments-count" id="commentsCount">0 comments</span>
+        </div>
+        <div class="comments-auth-gate" id="commentsAuthGate">
+            <p><a href="index.html">Log in</a> or <a href="register.html">create an account</a> to leave a comment.</p>
+        </div>
+        <div class="comments-form" id="commentsForm" style="display: none;">
+            <textarea id="commentInput" placeholder="Write a comment..." rows="3" maxlength="500"></textarea>
+            <button class="comment-submit-btn" id="commentSubmitBtn"><i class="fas fa-paper-plane"></i> Post Comment</button>
+        </div>
+        <div class="comments-list" id="commentsList"></div>
+    </section>
+    <script type="module" src="js/pages/watch.js"></script>
+</body>
+</html>

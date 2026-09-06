@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch popular, trending, and currently airing anime online with Mirai Anime.">
+    <title>Home - Mirai - Watch Anime Online, Free Anime Streaming</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
+    
+    <!-- Preconnect to external CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://s4.anilist.co" crossorigin>
+    <link rel="dns-prefetch" href="https://s4.anilist.co">
+    <link rel="preload" href="/api/catalog/spotlight" as="fetch" type="application/json" crossorigin="anonymous">
+
+    <!-- Preload LCP Hero Video & Fallback Poster -->
+    <link rel="preload" as="video" href="assets/irohamirai.mp4" type="video/mp4">
+    <link rel="preload" as="image" href="assets/hero-800.jpg" imagesrcset="assets/hero-400.jpg 400w, assets/hero-800.jpg 800w" imagesizes="(max-width: 888px) 90vw, 800px" fetchpriority="high">
+
+    <!-- Page-specific CSS is purged and minified by `npm run build:css`. -->
+    <link rel="stylesheet" href="./css/home.min.css">
+
+    <!-- Secondary stylesheets -->
+    <link rel="preload" href="./css/top-anime.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./css/top-anime.css"></noscript>
+    <link rel="preload" href="./css/airing-schedule.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./css/airing-schedule.css"></noscript>
+    <link rel="preload" href="./css/history.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./css/history.css"></noscript>
+
+    <!-- Asynchronous non-critical stylesheets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" as="style" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+    <link rel="preload" href="./css/modal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./css/modal.css"></noscript>
+
+    <link rel="preload" href="./css/tutorial.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./css/tutorial.css"></noscript>
+
+    <link rel="preload" href="./css/site-bottom-button.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./css/site-bottom-button.css"></noscript>
+</head>
+<body>
+    <header>
+    <nav>
+           <div class='nav-bar' role="navigation">
+                <input type='checkbox' id='check' />
+                <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+
+                <div class='logo'>
+                    <a href='home.html'><img src='assets/logo.png' alt="Logo" width="120" height="40"/></a>
+                </div>
+
+                <div class="nav-search-item">
+                    <div class="search-wrap">
+                        <span class="search-icon" id="animeSearchBtn" style="cursor: pointer;"><i class="fas fa-search"></i></span>
+                        <input type="text" id="animeSearchBox" placeholder="Search anime...">
+                        <kbd class="search-shortcut">Ctrl Y</kbd>
+                    </div>
+                </div>
+
+                <ul class="menu">
+                    <li>
+                     <a href="home.html">Home</a></li>
+                    <li class="nav-dropdown">
+                                  <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                 Genre <i class="fas fa-angle-down"></i>
+                           </a>
+                          <ul class="dropdown-menu">
+                            <li><button class="genre-link" data-genre="Action">Action</button></li>
+                            <li><button class="genre-link" data-genre="Adventure">Adventure</button></li>
+                            <li><button class="genre-link" data-genre="Comedy">Comedy</button></li>
+                            <li><button class="genre-link" data-genre="Drama">Drama</button></li>
+                            <li><button class="genre-link" data-genre="Ecchi">Ecchi</button></li>
+                            <li><button class="genre-link" data-genre="Fantasy">Fantasy</button></li>
+                            <li><button class="genre-link" data-genre="Horror">Horror</button></li>
+                            <li><button class="genre-link" data-genre="Mahou Shoujo">Magical Girl</button></li>
+                            <li><button class="genre-link" data-genre="Mecha">Mecha</button></li>
+                            <li><button class="genre-link" data-genre="Music">Music</button></li>
+                            <li><button class="genre-link" data-genre="Mystery">Mystery</button></li>
+                            <li><button class="genre-link" data-genre="Psychological">Psychological</button></li>
+                            <li><button class="genre-link" data-genre="Romance">Romance</button></li>
+                            <li><button class="genre-link" data-genre="Sci-Fi">Sci-Fi</button></li>
+                            <li><button class="genre-link" data-genre="Slice of Life">Slice of Life</button></li>
+                            <li><button class="genre-link" data-genre="Sports">Sports</button></li>
+                            <li><button class="genre-link" data-genre="Supernatural">Supernatural</button></li>
+                            <li><button class="genre-link" data-genre="Thriller">Thriller</button></li>
+                      </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                            Types <i class="fas fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><button type="button" class="types-link" data-type="TV">TV Series</button></li>
+                            <li><button type="button" class="types-link" data-type="MOVIE">Movies</button></li>
+                            <li><button type="button" class="types-link" data-type="OVA">OVAs</button></li>
+                            <li><button type="button" class="types-link" data-type="ONA">ONAs</button></li>
+                            <li><button type="button" class="types-link" data-type="SPECIAL">Specials</button></li>
+                            <li><button type="button" class="types-link" data-type="MUSIC">Music</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                    <li><a href="my-list.html"><i class="fas fa-list"></i> My List</a></li>
+                    <li><a href="updates.html">Updated</a></li>
+                </ul>
+
+                <div class="nav-user">
+                    <button type="button" class="mobile-search-toggle" id="mobileSearchToggle" aria-label="Open search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="user-logo" id="profileBtn" aria-label="User profile">
+                        <i class="fas fa-user-circle" id="navUserIcon"></i>
+                        <img id="navUserAvatar" src="" alt="User" class="nav-user-avatar" style="display:none;">
+                    </button>
+                    <div class="profile-popup" id="profilePopup">
+                        <div class="profile-popup-header">
+                            <div class="profile-popup-avatar">
+                                <img id="popupAvatarImg" src="" alt="Avatar" class="popup-avatar-img" style="display:none;">
+                                <div id="popupAvatarPlaceholder" class="popup-avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="profile-popup-avatar-overlay" id="avatarUploadOverlay">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <input type="file" id="avatarUploadInput" accept="image/*" hidden>
+                            </div>
+                            <div class="profile-popup-info">
+                                <span class="profile-display-name" id="popupDisplayName">Guest</span>
+                                <input type="text" class="profile-popup-username" id="popupUsername" value="Guest" maxlength="32" style="display: none;">
+                                <div class="profile-popup-meta">
+                                    <span class="profile-popup-status"><span class="status-dot"></span> Online</span>
+                                    <span class="profile-popup-email" id="popupEmailDisplay">guest@mirai.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-popup-body">
+                            <div class="profile-popup-field">
+                                <label>Display Name</label>
+                                <div class="profile-input-row">
+                                    <input type="text" id="displayName" placeholder="Enter display name" maxlength="32">
+                                    <button class="profile-save-btn" id="saveDisplayName">Save</button>
+                                </div>
+                            </div>
+                            <div class="profile-popup-field">
+                                <label>Bio</label>
+                                <textarea id="userBio" placeholder="Tell us about yourself..." maxlength="190" rows="2"></textarea>
+                            </div>
+                            <div class="profile-popup-field">
+                                <label>Joined</label>
+                                <span class="profile-joined-date" id="joinedDate">-</span>
+                            </div>
+                            <div class="profile-popup-actions">
+                                <button class="profile-action-btn" id="editProfileBtn"><i class="fas fa-pen"></i> Edit</button>
+                                <button class="profile-action-btn" id="changeStatusBtn"><i class="fas fa-circle"></i> Status</button>
+                            </div>
+                            <button class="profile-logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </nav>
+
+        <div class="mobile-floating-search" id="mobileFloatingSearch" hidden>
+            <div class="floating-search-backdrop" id="floatingSearchBackdrop"></div>
+            <div class="floating-search-bar">
+                <span class="floating-search-icon"><i class="fas fa-search"></i></span>
+                <input type="text" id="mobileSearchBox" placeholder="Search anime..." autocomplete="off">
+                <button type="button" class="floating-search-close" id="mobileSearchClose" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="floating-search-results" id="mobileSearchResults" hidden></div>
+        </div>
+    </header>
+
+    <p class="site-announcement">
+      Welcome to Mirai Anime — stream your favorite series with us.
+    </p>
+
+    <section class="spotlight-hero" id="spotlightHero" aria-roledescription="carousel" aria-label="Featured anime">
+      <div class="spotlight-loading" aria-live="polite">
+        <span class="spotlight-loading-kicker">MIRAI SPOTLIGHT</span>
+        <strong>Loading featured anime…</strong>
+      </div>
+    </section>
+
+    <div id="search-results-section" style="display: none;">
+        <h3 class="section-title" id="search-title">Search Results</h3>
+        <div id="search-container" class="anime-grid-container"></div>
+    </div>
+
+    <main id="main-homepage-content">
+        <div class="home-layout">
+            <div class="home-main">
+                <div id="continue-watching-section" style="display: none;">
+                    <div class="cw-title-row">
+                        <h2 class="section-title"><i class="fas fa-clock-rotate-left"></i> Continue Watching</h2>
+                        <div class="cw-controls">
+                            <button id="cw-prev-btn" type="button" class="cw-scroll-btn" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                            <button id="cw-next-btn" type="button" class="cw-scroll-btn" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="cw-viewport">
+                        <div id="continue-watching-container" class="cw-track"></div>
+                    </div>
+                </div>
+
+                <h2 class="section-title"><i class="fas fa-star"></i> Recommended For You</h2>
+                <div class="carousel-viewport">
+                    <div id="recommended-container" class="anime-carousel-track" aria-live="polite"></div>
+                </div>
+
+                <h2 class="section-title"><i class="fas fa-fire"></i> Trending Now</h2>
+                <div class="trending-controls">
+                    <button id="trending-prev-btn" type="button" disabled>Previous</button>
+                    <span id="trending-page-indicator" style="color: #ffffff; font-size: 14px;">Page 1</span>
+                    <button id="trending-next-btn" type="button" disabled>Next</button>
+                </div>
+                <div id="trending-container" class="anime-grid-container"></div>
+            </div>
+
+            <aside class="home-sidebar">
+
+                <section class="airing-schedule home-airing-schedule fanart-sidebar-section" id="homeFanArtSection">
+                    <div class="airing-schedule-header">
+                        <h3><i class="fas fa-palette"></i> Fan Art</h3>
+                    </div>
+                    <div class="airing-schedule-body" id="homeFanArtContainer">
+                        <p class="schedule-loading">Loading fan art...</p>
+                    </div>
+                </section>
+
+                <div class="top-anime" id="topAnime">
+                    <div class="top-anime-header">
+                        <h3><i class="fas fa-trophy"></i> Top Anime</h3>
+                    </div>
+                    <div class="top-anime-tabs">
+                        <button type="button" class="top-anime-tab active" data-period="day">Day</button>
+                        <button type="button" class="top-anime-tab" data-period="week">Week</button>
+                        <button type="button" class="top-anime-tab" data-period="month">Month</button>
+                    </div>
+                    <div class="top-anime-body">
+                        <div id="topAnimeList">
+                            <p class="top-anime-loading">Loading ranking...</p>
+                        </div>
+                    </div>
+                </div>
+                <section class="airing-schedule home-airing-schedule" id="homeAiringSchedule">
+                    <div class="airing-schedule-header">
+                        <h3><i class="fas fa-calendar-alt"></i> Airing Schedule</h3>
+                    </div>
+                    <div class="airing-schedule-body" id="homeAiringScheduleList">
+                        <p class="schedule-loading">Loading schedule...</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+     <footer class="modern-footer">
+  <div class="footer-container">
+    <div class="brand-section">
+      <img src="assets/hero-800.jpg" srcset="assets/hero-400.jpg 400w, assets/hero-800.jpg 800w" sizes="(max-width: 600px) 280px, 320px" alt="Mirai Anime" class="footer-hero-img" width="290" height="163" loading="lazy" decoding="async">
+      <div class="devs-link-container">
+        <a href="https://share.google/QxGYC4pNsS1mOfUmy" target="_blank" rel="noopener noreferrer" class="devs-chip">
+            <i class="fas fa-code"></i> This is your devs
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-links-group">
+
+      <div class="footer-col">
+        <h3>EXPLORE</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="history.html">Continue Watching</a></li>
+          <li><a href="my-list.html">My Anime-List</a></li>
+          <li><a href="updates.html">Changelog</a></li>
+          <li><a href="all-anime-index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>SOCIALS</h3>
+        <ul>
+          <li><a href="https://www.tiktok.com/@miraianimeio?is_from_webapp=1&sender_device=pc">Tiktok</a></li>
+          <li><a href="https://discord.gg/sxFWDnvRP">Discord</a></li>
+          <li><a href="https://www.reddit.com/user/Mirai-Animedev/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button">Reddit</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <h2>&copy; 2026 miraianimetv.to &mdash; All rights reserved.</h2>
+  </div>
+</footer>
+    <script type="module" src="js/pages/home.js"></script>
+</body>
+</html>
