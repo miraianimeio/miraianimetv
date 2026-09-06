@@ -1,0 +1,53 @@
+# dependencies
+node_modules/
+
+# secrets — MAL client id/secret live here, never commit
+.env
+.env.local
+.env.*.local
+
+# Large binary media — kept OUT of git history.
+#
+# Rule: small assets the pages actually reference are tracked (total ~800KB);
+# anything large or unreferenced is not. Git has no delta compression for these,
+# so a single 17MB PNG would sit in history permanently.
+#
+# NOT TRACKED, and needed at runtime:
+#   public/assets/Saberfanart.png  (17MB, used by the fan-art gallery)
+# Provide it via Git LFS or object storage before deploying, or compress it
+# first — 17MB is far past what a web page should ship. The gallery degrades to
+# a placeholder when it is missing, so the site still builds without it.
+#
+# NOT TRACKED, and unreferenced by any page (safe to delete):
+#   Iroha.png (5MB), goodbyeMirai.mp4 (8.5MB), miraivideo.mp4 (3.1MB),
+#   "New Project 60 [25AD541].png" (144KB)
+public/assets/*.mp4
+public/assets/*.png
+public/assets/*.jpg
+public/assets/*.jpeg
+public/assets/*.webp
+
+# ...except these small, actively referenced ones
+!public/assets/favicon.png
+!public/assets/favicon-180.png
+!public/assets/logo.png
+!public/assets/mirai-logo.png
+!public/assets/Irohaa.jpg
+!public/assets/irohamirai.mp4
+!public/assets/hero-400.jpg
+!public/assets/hero-800.jpg
+!public/assets/Saberfanart-400.jpg
+!public/assets/mirai-logo-360.jpg
+
+# generated build intermediates
+.cache/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# logs
+*.log
+npm-debug.log*
